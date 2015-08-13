@@ -3,14 +3,14 @@
 #PBS -M gk925@nyu.edu
 #PBS -m abe
 #PBS -V
-#PBS -N light_sizeloc_fit_40
+#PBS -N sizeloc_fit_40
 #PBS -l nodes=1:ppn=10,mem=20GB,walltime=20:00:00
 
 module purge
 module load centos/bin
 module load matlab/2014a
 
-cd /scratch/gk925/light_source_loc_fit
+cd /scratch/gk925/sphere_size_loc_fit
 
 if [ "$PBS_JOBTMP" == "" ]; then
     export PBS_JOBTMP=/state/partition1/$USER
