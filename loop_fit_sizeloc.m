@@ -9,9 +9,9 @@ setGlobalrod(0.1);
 setGlobalros(0.04); %40 gloss
 
 % init 2 param fitting
-LB = [-1; -1; 1.5];
-UB = [1; 1; 2.5];
-NumDiv = [5 5 5];
+LB = [-0.03; -0.03; 2.0];
+UB = [0.03; 0.03; 2.4];
+NumDiv = [10 10 10];
 MinDeltaX = [1e-5 1e-5 1e-5];
 
 bestfit_3pr = [];

@@ -50,6 +50,12 @@ fixedalpha = getGlobalalpha;
 % alphau = fixedalpha;
 % light = (var(1)+var(2));
 
+% rho_s = 0.04;
+% rho_d = 0.1;
+% fixedalpha = 0.2;
+% ro_s = ['300:',num2str(rho_s),' 800:',num2str(rho_s)];
+% ro_d = ['300:', num2str(rho_d), ' 800:', num2str(rho_d)];
+
 ro_s = ['300:',num2str(getGlobalros),' 800:',num2str(getGlobalros)];
 ro_d = ['300:', num2str(getGlobalrod), ' 800:', num2str(getGlobalrod)];
 alphau = fixedalpha; % alphau and alphav should always be the same value for isotropic brdf
@@ -61,10 +67,13 @@ mycell = {ro_s, ro_d, alphau, locx, locy, scalex};
 
 T = cell2table(mycell, 'VariableNames', {'ro_s' 'ro_d' 'alphau' 'locx' 'locy' 'scalex'});
 writetable(T,'/scratch/gk925/sphere_size_loc_fit/sphere_3params_Conditions.txt','Delimiter','\t')
+% writetable(T,'/Local/Users/gizem/Documents/Research/GlossBump/sphere_size_loc_fit/sphere_3params_Conditions.txt','Delimiter','\t')
+
 %% Rendering bit
 
 % Set preferences
 setpref('RenderToolbox3', 'workingFolder', '/scratch/gk925/sphere_size_loc_fit');
+% setpref('RenderToolbox3', 'workingFolder', '/Local/Users/gizem/Documents/Research/GlossBump/sphere_size_loc_fit/');
 
 % use this scene and condition file. 
 parentSceneFile = 'test_sphere.dae';
@@ -108,6 +117,7 @@ montageFile = [montageName '.png'];
     MakeMontage(radianceDataFiles, montageFile, toneMapFactor, isScale, hints);
 
 % load the monochromatic image and display it
+% imPath = ['/Local/Users/gizem/Documents/Research/GlossBump/sphere_size_loc_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
 imPath = ['/scratch/gk925/sphere_size_loc_fit/', hints.recipeName, '/renderings/Mitsuba/test_sphere-001.mat']
 load(imPath, 'multispectralImage');
 im2 = multispectralImage;
