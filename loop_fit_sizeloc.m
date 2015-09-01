@@ -20,7 +20,8 @@ bestLocSize = [];
 
 fitname1 = '40percent_sizeloc.mat';
 
-[LocSizeBest,BestF2,Iters2] = Grid_Search(3, LB', UB', NumDiv, MinDeltaX, 1e-7, 1000, 'renderIm_3params_locsize');
+[LocSizeBest, BestF2, Iters2] = gridsearch(@renderIm_3params_locsize, LB, UB, 10, 0.8, 1e-7, 1000, 1, 1);
+% [LocSizeBest,BestF2,Iters2] = Grid_Search(3, LB', UB', NumDiv, MinDeltaX, 1e-7, 1000, 'renderIm_3params_locsize');
 sprintf('This is LocSizeBest:');
 LocSizeBest;
 % setGloballightx(LocSizeBest(1))
