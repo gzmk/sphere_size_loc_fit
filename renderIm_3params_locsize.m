@@ -64,6 +64,9 @@ locy = var(2);
 scalex = var(3);
 mycell = {ro_s, ro_d, alphau, locx, locy, scalex};
 
+% print the new values of parameters for every fminsearch iteration
+sprintf('The material variables are: ro_s: %f ro_d: %f alphau: %f', ro_s, ro_d, alphau)
+sprintf('The locsize variables are: locx: %f locy: %f scale: %f', var(1), var(2), var(3))
 
 T = cell2table(mycell, 'VariableNames', {'ro_s' 'ro_d' 'alphau' 'locx' 'locy' 'scalex'});
 writetable(T,'/scratch/gk925/sphere_size_loc_fit/sphere_3params_Conditions.txt','Delimiter','\t')
